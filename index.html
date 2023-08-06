@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <!-- Bootstrap CSS Styles -->
+    
+<!-- Bootstrap CSS Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     
     <title>Weather Dashboard</title>
@@ -29,7 +29,7 @@
                 <!-- Search Form -->
                 <form class="input-group mb-3">
                     <!-- City Input Field -->
-                    <input type="text" class="inputValue" />
+                    <input type="text" class="inputValue" id="inputValue" placeholder="Enter your city" />
                     
                     <!-- Search Button -->
                     <div class="input-group-append">
@@ -43,6 +43,36 @@
                 <button class="btn btn-primary mb-3" type="button">Clear</button>
 
                 
+                <form></form>
+            </div>
+
+            <!-- Display Section -->
+            <div class="col-sm-9 display">
+                <!-- Current Weather Card -->
+                <div class="current-weather hide card">
+                    <!-- City, Date, Icon -->
+                    <h2 class="city-date-icon"></h2>
+                    <!-- Temperature, Humidity, Wind -->
+                    <p class="temp"></p>
+                    <p class="humidity"></p>
+                    <p class="wind"></p>
+                    <!-- UV Index -->
+                    <p class="uvi">
+                        UV Index: 
+                        <i class="uviValue"></i>
+                    </p>
+                </div>
+
+                <!-- Five-Day Forecast -->
+                <div class="d-flex five-day-forecast">
+                    <!-- Forecast Header -->
+                    <h3 class="fiveDayHeader"></h3>
+                    <br />
+                    <!-- Forecast Cards Container -->
+                    <div class="col-12 d-flex"></div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- JavaScript -->
