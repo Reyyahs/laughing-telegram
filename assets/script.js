@@ -52,3 +52,41 @@ const searchSubmitHandler = (event) => {
     alert("Please enter a city!");
   }
 };
+// Get weather information for a city from the OpenWeatherMap API
+const getWeather = async (city) => {
+  try {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=274430606889ac1bc7c52608988ee8ae`;
+    
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error("City not found");
+    }
+
+    const data = await response.json();
+    const { name: nameValue, main, wind: windValue, coord, weather } = data;
+    const { temp: tempValue, humidity: humidityValue } = main;
+    const { speed: windSpeed } = windValue;
+    const { lat, lon } = coord;
+    const icon = weather[0].icon;
+
+    // Construct the weather icon URL
+    const weatherURL = `https://openweathermap.org/img/wn/${icon}.png`;
+    const iconImage = `<img src="${weatherURL}"/>`;
+
+    // Update the UI with weather information
+    cityDateIcon.innerHTML = `${nameValue} ${currentDate.format(" (M/DD/YYYY) ")} ${iconImage}`;
+    temp.innerHTML = `Temperature: ${tempValue} °F`;
+    humidity.innerHTML = `Humidity: ${humidityValue}%`;
+    wind.innerHTML = `Wind Speed: ${windSpeed} MPH`;
+    topContainer.classList.remove("hide");
+
+    // Save the searched city in local storage and update recent searches
+    setLocalStorage(city);
+    renderRecents();
+    
+    // Get UV index information and update the forecast
+    await uvIndex(lat, lon);
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+};
