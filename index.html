@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Metadata and External Resources -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Bootstrap CSS Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    
+    <title>Weather Dashboard</title>
 </head>
 <body>
-    
+    <!-- Page Header -->
+    <header>
+        <h1><strong>Weather Dashboard</strong></h1>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        <!-- Row for Search and Display Sections -->
+        <div class="row">
+            <!-- Search Section -->
+            <div class="col-sm-3">
+                <!-- Search Header -->
+                <h4 class="searchCityHeader">Search for a City:</h4>
+
+                <!-- Search Form -->
+                <form class="input-group mb-3">
+                    <!-- City Input Field -->
+                    <input type="text" class="inputValue" />
+                    
+                    <!-- Search Button -->
+                    <div class="input-group-append">
+                        <button class="searchBtn btn btn-primary" type="button">
+                            <i><span class="oi oi-magnifying-glass"></span></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Clear History Button -->
+                <button class="btn btn-primary mb-3" type="button">Clear</button>
+
+                
+    </main>
+
+    <!-- JavaScript -->
+    <script src="./assets/script.js"></script>
 </body>
 </html>
