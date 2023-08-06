@@ -116,3 +116,50 @@ clear.addEventListener("click", () => {
   recentSearches.length = 0;
   renderRecents();
 });
+
+// Get UV index and 5-day forecast data
+const uvIndex = async (lat, lon) => {
+  try {
+    const uviUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=274430606889ac1bc7c52608988ee8ae`;
+    const response = await fetch(uviUrl);
+    
+    if (response.ok) {
+      const data = await response.json();
+      const { current, daily } = data;
+      const { uvi: uviValue } = current;
+      
+      // Apply different styles to UV index badge based on its value
+      const uviLine = document.querySelector(".uviValue");
+      uviLine.textContent = uviValue;
+      if (uviValue >= 8) {
+        uviLine.classList.add("badge", "badge-danger");
+      } else if (uviValue >= 6) {
+        uviLine.classList.add("badge", "badge-warning");
+      } else if (uviValue >= 3) {
+        uviLine.classList.add("badge", "badge-success");
+      } else {
+        uviLine.classList.add("badge", "badge-info");
+      }
+      
+      // Generate HTML for the 5-day forecast cards
+      const fiveDayCardContainer = document.querySelector("#cards");
+      fiveDayCardContainer.innerHTML = daily.slice(0, 5).map((cardData) => {
+        const { temp: { day: cardTemp }, humidity: cardHumidity, weather } = cardData;
+        const iconImage = weather[0].icon;
+        const weatherURL = `https://openweathermap.org/img/wn/${iconImage}.png`;
+        const icon = `<img src="${weatherURL}" style="width: 75px"/>`;
+        
+        return `
+          <div class="card fiveDayCard" style="flex: 1">
+            <h4 class="dateHeader">${moment(new Date(cardData.dt * 1000)).format(" M/DD/YYYY")}</h4>
+            ${icon}
+            <p>Temp: ${cardTemp}&deg;F</p>
+            <p>Humidity: ${cardHumidity}%</p>
+          </div>
+        `;
+      }).join("");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};

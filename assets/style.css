@@ -30,7 +30,10 @@ input {
     margin-left: 10px;
 }
 
-
+.five-day-forecast {
+    flex-direction: column;
+    color: black;
+}
 
 .card {
     margin: 10px;
@@ -51,5 +54,8 @@ input {
     background-color: white;
 }
 
-
-
+.fiveDayCard {
+    padding: 10px;
+    background-color: white;
+    color: black;
+}
