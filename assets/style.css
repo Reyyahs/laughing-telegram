@@ -1,0 +1,55 @@
+header {
+    background-color: royalblue;
+    text-align: center;
+    padding: 30px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.searchCityHeader {
+    margin-top: 20px;
+    color: black;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: whitesmoke;
+}
+
+.container {
+    margin-left: 10px;
+    padding-left: 10px;
+    min-width: 200px;
+}
+
+h3 {
+    margin: 10px;
+}
+
+input {
+    margin-left: 10px;
+}
+
+
+
+.card {
+    margin: 10px;
+    min-width: 100px;
+}
+
+.dateHeader {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.hide {
+    display: none;
+}
+
+.current-weather {
+    padding: 10px;
+    background-color: white;
+}
+
+
+
