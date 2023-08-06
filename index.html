@@ -5,10 +5,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     
-<!-- Bootstrap CSS Styles -->
+    <!-- Moment.js Library for Date and Time Handling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous" />
+    
+    <!-- Bootstrap CSS Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/style.css"/>
+    
+    <!-- Open Iconic Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./assets/style.css" />
+    
+    
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -29,21 +50,21 @@
                 <!-- Search Form -->
                 <form class="input-group mb-3">
                     <!-- City Input Field -->
-                    <input type="text" class="inputValue" placeholder="Enter your city" />
+                    <input type="text" class="inputValue" id="inputValue" placeholder="Enter your city" />
                     
                     <!-- Search Button -->
                     <div class="input-group-append">
-                        <button class="searchBtn btn btn-primary" type="button">
+                        <button class="searchBtn btn btn-primary" id="searchButton" type="button">
                             <i><span class="oi oi-magnifying-glass"></span></i>
                         </button>
                     </div>
                 </form>
 
                 <!-- Clear History Button -->
-                <button class="btn btn-primary mb-3" type="button">Clear</button>
+                <button class="btn btn-primary mb-3" type="button" id="clearHistory">Clear</button>
 
-                
-                <form></form>
+                <!-- Recent Searches Container -->
+                <form id="recent"></form>
             </div>
 
             <!-- Display Section -->
@@ -69,7 +90,7 @@
                     <h3 class="fiveDayHeader"></h3>
                     <br />
                     <!-- Forecast Cards Container -->
-                    <div class="col-12 d-flex"></div>
+                    <div id="cards" class="col-12 d-flex"></div>
                 </div>
             </div>
         </div>
