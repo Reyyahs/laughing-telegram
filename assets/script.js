@@ -90,3 +90,11 @@ const getWeather = async (city) => {
     alert(`Error: ${error.message}`);
   }
 };
+
+// Store a city in local storage if it's not already included
+const setLocalStorage = (city) => {
+  if (!recentSearches.includes(city)) {
+    recentSearches.push(city);
+    localStorage.setItem("recents", JSON.stringify(recentSearches));
+  }
+};
