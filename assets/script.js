@@ -98,3 +98,21 @@ const setLocalStorage = (city) => {
     localStorage.setItem("recents", JSON.stringify(recentSearches));
   }
 };
+
+// Add click event listener to the search button
+searchBtn.addEventListener("click", () => {
+  const userInput = inputValue.value.trim();
+  if (userInput !== "") {
+    getWeather(userInput);
+    inputValue.value = "";
+  } else {
+    alert("Please enter a city!");
+  }
+});
+
+// Add click event listener to the clear history button
+clear.addEventListener("click", () => {
+  localStorage.removeItem("recents");
+  recentSearches.length = 0;
+  renderRecents();
+});
